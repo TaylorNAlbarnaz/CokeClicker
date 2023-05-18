@@ -26,11 +26,13 @@ body {
 }
 
 #calculator__preview {
+    user-select: none;
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
 #calculator__finalresult {
+    user-select: none;
     font-weight: 600;
     font-size: 2.5rem;
 }
@@ -85,6 +87,10 @@ body {
     border-radius: 50%;
     user-select: none;
     cursor: pointer;
+}
+
+.calculator__buttons__single:hover, .calculator__buttons__equal:hover{
+    opacity: .6;
 }
 
 .calculator__buttons__equal {

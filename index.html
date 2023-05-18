@@ -15,29 +15,31 @@
         </div>
         <div id="calculator__buttons">
             <div id="calculator__buttons__top">
-                <div class="calculator__buttons__single special shadow">C</div>
-                <div class="calculator__buttons__single special shadow">%</div>
-                <div class="calculator__buttons__single special shadow">/</div>
-                <div class="calculator__buttons__single special shadow"><</div>
-                <div class="calculator__buttons__single">7</div>
-                <div class="calculator__buttons__single">8</div>
-                <div class="calculator__buttons__single">9</div>
-                <div class="calculator__buttons__single special shadow">X</div>
-                <div class="calculator__buttons__single">4</div>
-                <div class="calculator__buttons__single">5</div>
-                <div class="calculator__buttons__single">6</div>
-                <div class="calculator__buttons__single special shadow">-</div>
-                <div class="calculator__buttons__single">1</div>
-                <div class="calculator__buttons__single">2</div>
-                <div class="calculator__buttons__single">3</div>
-                <div class="calculator__buttons__single special shadow">+</div>
+                <div onclick="ResetarTela()" class="calculator__buttons__single special shadow">C</div>
+                <div onclick="SetarOperador('%')" class="calculator__buttons__single special shadow">%</div>
+                <div onclick="SetarOperador('/')" class="calculator__buttons__single special shadow">/</div>
+                <div onclick="RemoverNumero()" class="calculator__buttons__single special shadow"><</div>
+                <div onclick="AdicionarNumero(7)" class="calculator__buttons__single">7</div>
+                <div onclick="AdicionarNumero(8)" class="calculator__buttons__single">8</div>
+                <div onclick="AdicionarNumero(9)" class="calculator__buttons__single">9</div>
+                <div onclick="SetarOperador('*')"class="calculator__buttons__single special shadow">X</div>
+                <div onclick="AdicionarNumero(4)" class="calculator__buttons__single">4</div>
+                <div onclick="AdicionarNumero(5)" class="calculator__buttons__single">5</div>
+                <div onclick="AdicionarNumero(6)" class="calculator__buttons__single">6</div>
+                <div onclick="SetarOperador('-')" class="calculator__buttons__single special shadow">-</div>
+                <div onclick="AdicionarNumero(1)"class="calculator__buttons__single">1</div>
+                <div onclick="AdicionarNumero(2)" class="calculator__buttons__single">2</div>
+                <div onclick="AdicionarNumero(3)" class="calculator__buttons__single">3</div>
+                <div onclick="SetarOperador('+')" class="calculator__buttons__single special shadow">+</div>
             </div>
             <div id="calculator__buttons__bottom">
-                <div class="calculator__buttons__single">0</div>
-                <div class="calculator__buttons__single">.</div>
-                <div class="calculator__buttons__equal shadow">=</div>
+                <div onclick="AdicionarNumero(0)" class="calculator__buttons__single">0</div>
+                <div onclick="AdicionarNumero('.')" class="calculator__buttons__single">.</div>
+                <div onclick="CalcularResultado()" class="calculator__buttons__equal shadow">=</div>
             </div>
         </div>
     </div>
+
+    <script src="calculator.js"></script>
 </body>
 </html>
