@@ -1,0 +1,16 @@
+{
+    "name": "taylor-albarnaz/php-calculator",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TaylorNAlbarnaz",
+            "email": "veloxgods@gmail.com"
+        }
+    ],
+    "require": {}
+}
