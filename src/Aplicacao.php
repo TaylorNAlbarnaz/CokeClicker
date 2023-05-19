@@ -3,14 +3,13 @@ namespace App;
 
 use App\Operacoes\Adicao;
 use App\Operacoes\Divisao;
-use App\Operacoes\IOperacao;
 use App\Operacoes\Modulo;
 use App\Operacoes\Multiplicacao;
 use App\Operacoes\Subtracao;
 
 class Aplicacao {
     public Calculadora $calculadora;
-    public IOperacao $operacoes;
+    public $operacoes;
 
     public function __construct(Calculadora $calculadora) {
         $this->calculadora = $calculadora;
@@ -24,11 +23,24 @@ class Aplicacao {
         $multiplicacao = new Multiplicacao();
         $subtracao = new Subtracao();
 
-        $operacoes = array($adicao, $divisao, $modulo, $multiplicacao, $subtracao);
+        $this->operacoes = array($adicao, $divisao, $modulo, $multiplicacao, $subtracao);
+    }
 
-        foreach ($operacoes as $operacao) {
-            echo $operacao->Operador();
+    public function SetarValores($valor1, $valor2) {
+        $this->calculadora->valor1 = $valor1;
+        $this->calculadora->valor2 = $valor2;
+    }
+
+    public function SetarOperador($operador) {
+        foreach ($this->operacoes as $operacao) {
+            if ($operacao->Operador() === $operador) {
+                $this->calculadora->operacao = $operacao;
+            }
         }
+    }
+
+    public function CalcularResultado(): float {
+        return $this->calculadora->CalcularResultado();
     }
 }
 ?>

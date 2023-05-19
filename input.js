@@ -7,6 +7,10 @@ let concluido = false;
 let primeiroPonto = false;
 let segundoPonto = false;
 
+const resultadoVisual = document.getElementById("calculator__finalresult");
+const preview = document.getElementById("calculator__preview");
+
+// Adiciona um digito ao número atual
 function AdicionarNumero(charAdicionado) {
     if (concluido)
         ResetarTela();
@@ -38,6 +42,7 @@ function AdicionarNumero(charAdicionado) {
     AtualizarTela();
 }
 
+// Remove um digito do número atual
 function RemoverNumero() {
     if (concluido)
         ResetarTela();
@@ -68,6 +73,7 @@ function RemoverNumero() {
     AtualizarTela();
 }
 
+// Seta o operador a ser utilizado pela calculadora
 function SetarOperador(operadorAdicionado) {
     if (concluido)
         ResetarTela();
@@ -80,6 +86,12 @@ function SetarOperador(operadorAdicionado) {
     }
 }
 
+// Atualiza a tela com os dados inseridos
+function AtualizarTela() {
+    preview.innerText = `${primeiroNumero} ${operador} ${segundoNumero}`;
+}
+
+// Reseta a tela para seu estado original
 function ResetarTela() {
     primeiroNumero = "";
     segundoNumero = "";
@@ -90,17 +102,21 @@ function ResetarTela() {
     primeiroPonto = false;
     segundoPonto = false;
 
+    resultadoVisual.innerText = "";
     AtualizarTela();
 }
 
-function AtualizarTela() {
-    const preview = document.getElementById("calculator__preview");
-    preview.innerText = `${primeiroNumero} ${operador} ${segundoNumero}`;
-}
+// Calcula o resultado fazendo uma requisição php
+async function CalcularResultado() {
+    if (!primeiroNumero.length > 0 && !segundoNumero.length > 0 && !operador.length > 0)
+        return;
 
-function CalcularResultado() {
-    const resultadoFinal = document.getElementById("calculator__finalresult");
-    resultadoFinal.innerText = "999";
+    data = {"valor1": primeiroNumero, "valor2": segundoNumero, "operador": operador};
+
+    const response = await fetch("index.php", {method: "POST", body: JSON.stringify(data)})
+    const json = await response.json();
+
+    resultadoVisual.innerText = JSON.parse(json);
 
     concluido = true;
 }
