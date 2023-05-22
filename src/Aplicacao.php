@@ -39,9 +39,8 @@ class Aplicacao {
         }
     }
 
-    public function CalcularResultado(): string {
-        $resultado = $this->calculadora->CalcularResultado();
-        $resultado = number_format($resultado, 4);
+    public function CalcularResultado(): float {
+        $resultado = round($this->calculadora->CalcularResultado(), 4);
         return $resultado;
     }
 }

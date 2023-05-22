@@ -19,14 +19,18 @@ if ($metodo == 'GET')
 
 if ($metodo == 'POST')
 {
-    $json = file_get_contents('php://input');
-    $dados = json_decode($json);
+    try {
+        $json = file_get_contents('php://input');
+        $dados = json_decode($json);
 
-    $aplicacao->SetarValores($dados->valor1, $dados->valor2);
-    $aplicacao->SetarOperador($dados->operador);
-    $resultado = $aplicacao->CalcularResultado();
+        $aplicacao->SetarValores($dados->valor1, $dados->valor2);
+        $aplicacao->SetarOperador($dados->operador);
+        $resultado = $aplicacao->CalcularResultado();
 
-    echo $resultado;
+        echo $resultado;
+    } catch (Exception $ex) {
+        echo "Invalido";
+    }
 }
 
 ?>

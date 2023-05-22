@@ -32,11 +32,13 @@ function AdicionarNumero(charAdicionado) {
     }
 
     if (numeroAtual === 0) {
-        primeiroNumero += charAdicionado;
+        if (primeiroNumero.length < 4)
+            primeiroNumero += charAdicionado;
     }
 
     if (numeroAtual === 1) {
-        segundoNumero += charAdicionado;
+        if (segundoNumero.length < 4)
+            segundoNumero += charAdicionado;
     }
 
     AtualizarTela();
