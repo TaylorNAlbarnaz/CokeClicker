@@ -39,8 +39,10 @@ class Aplicacao {
         }
     }
 
-    public function CalcularResultado(): float {
-        return $this->calculadora->CalcularResultado();
+    public function CalcularResultado(): string {
+        $resultado = $this->calculadora->CalcularResultado();
+        $resultado = number_format($resultado, 4);
+        return $resultado;
     }
 }
 ?>
