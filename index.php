@@ -7,7 +7,6 @@ use App\Calculadora;
 // Inicializa as classes necessárias
 $calculadora = new Calculadora();
 $aplicacao = new Aplicacao($calculadora);
-
 $aplicacao->InicializarOperacoes();
 
 // Responde a requisição do usuário
