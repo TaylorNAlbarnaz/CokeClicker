@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "serve": "php -S 0.0.0.0:8080",
+    "localserve": "php -S localhost:8080",
     "compile": "sass scss/style.scss css/style.css",
     "watch": "sass --watch scss/style.scss css/style.css"
   },
