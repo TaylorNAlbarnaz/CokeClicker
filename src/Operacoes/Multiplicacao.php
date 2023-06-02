@@ -6,7 +6,7 @@ class Multiplicacao implements IOperacao {
         return $n1 * $n2;
     }
 
-    public function Operador() {
+    public function Operador(): string {
         return "*";
     }
 }

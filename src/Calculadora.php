@@ -3,7 +3,7 @@ namespace App;
 
 use App\Operacoes\IOperacao;
 
-class Calculadora {
+class Calculadora implements ICalculadora {
     public $valor1;
     public $valor2;
     public IOperacao $operacao;
@@ -14,6 +14,15 @@ class Calculadora {
         $resultado = $this->operacao->Calcular((float)$n1, (float)$n2);
 
         return $resultado;
+    }
+
+    public function SetarValores($v1, $v2): void {
+        $this->valor1 = $v1;
+        $this->valor2 = $v2;
+    }
+
+    public function SetarOperacao($operacao): void {
+        $this->operacao = $operacao;
     }
 }
 ?>

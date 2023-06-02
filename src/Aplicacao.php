@@ -7,16 +7,16 @@ use App\Operacoes\Modulo;
 use App\Operacoes\Multiplicacao;
 use App\Operacoes\Subtracao;
 
-class Aplicacao {
-    public Calculadora $calculadora;
+class Aplicacao implements IAplicacao {
+    public ICalculadora $calculadora;
     public $operacoes;
 
-    public function __construct(Calculadora $calculadora) {
+    public function __construct(ICalculadora $calculadora) {
         $this->calculadora = $calculadora;
     }
 
     // Adiciona todas as operações à aplicação
-    public function InicializarOperacoes() {
+    public function InicializarOperacoes(): void {
         $adicao = new Adicao();
         $divisao = new Divisao();
         $modulo = new Modulo();
@@ -26,15 +26,14 @@ class Aplicacao {
         $this->operacoes = array($adicao, $divisao, $modulo, $multiplicacao, $subtracao);
     }
 
-    public function SetarValores($valor1, $valor2) {
-        $this->calculadora->valor1 = $valor1;
-        $this->calculadora->valor2 = $valor2;
+    public function SetarValores($valor1, $valor2): void {
+        $this->calculadora->SetarValores($valor1, $valor2);
     }
 
-    public function SetarOperador($operador) {
+    public function SetarOperador($operador): void {
         foreach ($this->operacoes as $operacao) {
             if ($operacao->Operador() === $operador) {
-                $this->calculadora->operacao = $operacao;
+                $this->calculadora->SetarOperacao($operacao);
             }
         }
     }
