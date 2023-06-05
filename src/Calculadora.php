@@ -4,9 +4,9 @@ namespace App;
 use App\Operacoes\IOperacao;
 
 class Calculadora implements ICalculadora {
-    public $valor1;
-    public $valor2;
-    public IOperacao $operacao;
+    private $valor1;
+    private $valor2;
+    private IOperacao $operacao;
 
     public function CalcularResultado(): float {
         $n1 = $this->valor1;
